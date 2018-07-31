@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--HTML 5 + IE HACK--><!-- [if lt IE 9]><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-wp-preserve="%3Cscript%20src%3D%22http%3A%2F%2Fhtml5shim.googlecode.com%2Fsvn%2Ftrunk%2Fhtml5.js%22%3E%3C%2Fscript%3E" data-mce-resize="false" data-mce-placeholder="1" class="mce-object" width="20" height="20" alt="&lt;script&gt;" title="&lt;script&gt;" /><![endif]-->
+</head>
+
+<body>
+  <section class="loginbox">
+      <h1>Login</h1>
+      <form method="post" class="minimal">
+          <label for="username">
+              Username:
+              <input type="text" name="username" id="username" placeholder="Username must be between 8 and 20 characters" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+          </label>
+          <label for="password">
+              Password:
+              <input type="password" name="password" id="password" placeholder="Password must contain 1 uppercase, lowercase and number" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+          </label>
+          <button type="submit" class="btn-minimal">Sign in</button>
+      </form>
+      <a href= "">forgot password?</a>
+      <a href= "">create an account?</a>
+  </section>
+</body>
+</html>
