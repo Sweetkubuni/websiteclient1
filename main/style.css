@@ -1,8 +1,10 @@
+/* Remove line 2 to hide the outlines. These are here to illustrate how the containers are set up */
+/*div, section { outline: 2px solid magenta; }*/
+
 * {
   margin: 0;
   padding: 0;
   outline: none;
-
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -15,73 +17,73 @@ body {
 .container {
   background-color: rgb(230, 230, 230);
   border: 1px solid rgba(0,0,0,.15);
-  width:  1450px;
-  height: 500px;
+  /* I used `max-width` instead of `width` to make it responsive */
+  max-width: 1450px;
+  /* Don't use fixed heights */
+  /* height: 500px; */
   border-radius: 4px;
   box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 0 4px rgba(0,0,0,0.2);
-  margin: 40px auto; /*aligns center*/
+  margin: 40px auto;
+  
+  /* This line gives you the side-by-side layout you are looking for.
+     Here's more information: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+  */
+  display: flex;
 }
 
 nav {
   background-color:  rgb(255, 255, 255);
   width: 150px;
   border: 1px solid rgba(0,0,0,.15);
-  height: 100%;
-  position: relative;
   left: 0;
   top:  0;
   border-radius: 4px;
 }
-
 nav ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
-
 nav li {
-  padding: 15%;
+  /* I changed padding to a fixed value, don't use percents for margin/padding */
+  padding: 1.5rem;
   border-bottom: 1px solid rgba(0,0,0,.15);
   text-align: center;
   line-height: 1.3;
 }
-
 nav a {
   text-decoration: none;
   color: black;
 }
 
 header {
-  width:  1300px;
+  /* Removed all relative positioning */
   height:  50px;
-  border-bottom:   1px solid rgba(0,0,0,.15);
-  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,.15);
   text-align: left;
-  left:   150px;
-  bottom: 500px;
   line-height: 3.5;
-  text-indent: 50px;
+  padding: 0 24px;
+}
+
+.body {
+  /* Set the aside and section side-by-side using flex */
+  display: flex;
+}
+
+.course {
+  /* Let the course dev fill its container as much as it can. Think of this as water filling in available space */
+  flex: 1;
 }
 
 aside {
   width: 300px;
-  height: 450px;
+  /* Instead of adding 30px margin to all the children, simply use padding on the parent instead */
+  padding: 30px;
   border-left: 1px solid rgba(0,0,0,.15);
   border-top: 1px solid rgba(0,0,0,.15);
-  position: relative;
-  bottom: 501px;
-  left:1100px;
 }
-
 aside > ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-.sidelabel {
-  margin-top: 30px;
-  margin-left: 30px;
 }
 
 .button1 {
@@ -94,9 +96,8 @@ aside > ul {
   margin-bottom: 10px;
   border: none;
   padding: 5px;
-  width: 250px;
-  margin-left: 30px;
-  margin-top: 30px
+  width: 100%;
+  /* Removed margin */
 }
 
 .button2 {
@@ -109,58 +110,42 @@ aside > ul {
   margin-bottom: 10px;
   border:   1px solid rgba(0,0,0,.15);
   padding: 5px;
-  width: 250px;
-  margin-left: 30px;
+  width: 100%;
+  /* Removed margin */
 }
 
 section {
-  width: 900px;
-  height: 500px;
-  position: relative;
-  bottom: 900px;
-  left:170px;
+  /* Removed all the relative positioning and static width/height values */
   border-radius: 4px;
   border: 1px solid rgba(0,0,0,.15);
   background-color:  rgb(255, 255, 255);
+  /* Same as before, use parent padding instead of chidlren margin */
+  padding: 10px;
+  margin: 10px;
 }
 
-section h1 {
-  margin-top:  10px;
-  margin-left: 10px;
+.course-body {
+  display: flex;
+  padding: 10px;
+}
+.course-body img {
+  min-width: 305px;
+}
+.course-description {
+  margin: 10px;
 }
 
 section h6 {
-  margin-top:    10px;
-  margin-left:   10px;
-  margin-bottom: 10px;
   font-family: "Courier";
   color: rgb(107, 107, 107);
-}
-
-section img {
-  margin-left: 10px;
-  margin-top:  10px;
-}
-
-section h3 {
-  position: relative;
-  left: 350px;
-  bottom: 300px;
 }
 
 section p {
   font-family: "Courier";
   font-size: 12px;
-  position:relative;
-  left: 350px;
-  bottom: 280px;
   word-wrap: normal;
-  width: 500px;
 }
 
 section button {
-  left: 550px;
-  bottom: 180px;
-  position:relative;
   width: 100px;
 }
